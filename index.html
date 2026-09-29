@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kyle Law — AI Infrastructure & GenAI Engineer</title>
+<title>Kyle Law · Site Reliability Engineer · AI Infrastructure</title>
 <script>
   // set theme before first paint to avoid flash (default: light)
   try{
     document.documentElement.setAttribute('data-theme', 'light');
   }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
 </script>
-<meta name="description" content="Kyle Law — AI Infrastructure Engineer working on GPU cloud, GenAI and LLM systems. 5x NVIDIA Certified, 5x Kubernetes Certified. Slurm, Kubernetes, applied RAG/LLM. Based in Johor Bahru, Malaysia." />
+<meta name="description" content="Kyle Law, Site Reliability Engineer working across the NVIDIA AI infrastructure stack, Kubernetes, Slurm and agentic AI. 6x NVIDIA Certified, 5x Kubernetes Certified. Based in Johor Bahru, Malaysia." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -24,7 +24,7 @@
     --text:#E7EDF3;
     --muted:#93A1B0;
     --faint:#5E6B78;
-    --nv:#76B900;        /* NVIDIA signal green — fills, dots, borders */
+    --nv:#76B900;        /* NVIDIA signal green: fills, dots, borders */
     --nv-ink:#76B900;    /* green used as text/foreground (darkened in light) */
     --nv-glow:#9FE34A;
     --amber:#F5B83D;     /* honors / highlights */
@@ -282,6 +282,11 @@
   .listrow .l small{display:block;color:var(--faint);font-family:var(--mono);font-size:11px;margin-top:2px}
   .listrow .r{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap;text-align:right}
   .award{color:var(--amber)}
+  .hl{color:var(--nv-ink);font-weight:700}
+  .badge{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--nv-ink);border:1px solid rgba(118,185,0,.45);background:rgba(118,185,0,.08);border-radius:5px;padding:1px 6px;margin-left:8px;vertical-align:2px}
+  .about p{font-size:16px;color:var(--muted);max-width:640px}
+  .about p + p{margin-top:14px}
+  .about p b{color:var(--text);font-weight:600}
 
   .courses .listrow .r a{color:var(--cyan-ink)}
   .courses .listrow .r a:hover{text-decoration:underline}
@@ -315,12 +320,13 @@
     <a class="brand" href="#top"><span class="dot"></span>kyle&nbsp;law</a>
     <div class="barright">
       <nav class="links">
-        <a href="#now"><span>01</span> Now</a>
-        <a href="#strengths"><span>02</span> Strengths</a>
-        <a href="#experience"><span>03</span> Experience</a>
-        <a href="#certs"><span>04</span> Certs</a>
-        <a href="#beyond"><span>05</span> Beyond</a>
-        <a href="#contact"><span>06</span> Contact</a>
+        <a href="#about"><span>01</span> About</a>
+        <a href="#now"><span>02</span> Now</a>
+        <a href="#strengths"><span>03</span> Strengths</a>
+        <a href="#experience"><span>04</span> Experience</a>
+        <a href="#certs"><span>05</span> Certs</a>
+        <a href="#beyond"><span>06</span> Beyond</a>
+        <a href="#contact"><span>07</span> Contact</a>
       </nav>
       <button class="toggle" id="themeToggle" type="button" aria-label="Switch color theme">
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
@@ -338,13 +344,13 @@
     <div class="status-row">
       <span class="chip live"><span class="blink"></span>OPEN TO NEW OPPORTUNITIES</span>
       <span class="chip">📍 Johor Bahru, MY · open to relocation &amp; remote</span>
-      <span class="chip"><span class="blink" style="background:var(--cyan-ink)"></span>5× NVIDIA · 5× KUBERNETES CERTIFIED</span>
+      <span class="chip"><span class="blink" style="background:var(--cyan-ink)"></span>6× NVIDIA · 5× KUBERNETES CERTIFIED</span>
     </div>
 
     <h1 class="name">Kyle Law</h1>
-    <p class="role">AI&nbsp;Infrastructure Engineer&nbsp;·&nbsp;<b>GenAI &amp; LLM Systems</b></p>
+    <p class="role">Site&nbsp;Reliability Engineer&nbsp;·&nbsp;<b>NVIDIA AI Infra &amp; Agentic AI</b></p>
 
-    <p class="lede">I help bring <b>GenAI and LLM</b> systems to life on GPU infrastructure. As an SRE at an <b>NVIDIA-partnered GPU cloud</b>, I drove our org to <b>Cloud Partner Exemplar status</b>. Deep with <b>Slurm, Kubernetes, and containerized GPU workloads</b>, hands-on with RAG and LLM apps — and I teach the stack as much as I run it.</p>
+    <p class="lede">I'm a Site Reliability Engineer working across the <b>NVIDIA AI infrastructure stack</b>, <b>Kubernetes</b>, <b>Slurm</b> and <b>agentic AI</b>. At YTL AI Cloud I was primarily in charge of reaching <b>NVIDIA Cloud Partner Exemplar</b> status for GB200, one of three organizations worldwide at that tier. I also coach Kubernetes every day.</p>
 
     <div class="cta">
       <a class="btn primary" href="mailto:zhunkhing@gmail.com">
@@ -364,34 +370,78 @@
     <div class="readout">
       <div class="cell">
         <div class="k">NVIDIA Certified</div>
-        <div class="v"><span class="ac">5×</span></div>
-        <div class="sub">incl. Agentic AI · AI Infra</div>
+        <div class="v"><span class="ac">6×</span></div>
+        <div class="sub">1 of 9 worldwide · #1 in MY</div>
       </div>
       <div class="cell">
         <div class="k">Cloud Partner Exemplar</div>
-        <div class="v">1<small>/8</small></div>
-        <div class="sub">orgs worldwide at tier</div>
+        <div class="v">1<small>/3</small></div>
+        <div class="sub">orgs worldwide · GB200 tier</div>
       </div>
       <div class="cell">
         <div class="k">Orchestration</div>
-        <div class="v">Slurm<small> · K8s</small></div>
-        <div class="sub">5× Kubernetes · Kubestronaut</div>
+        <div class="v">K8s<small> · Slurm</small></div>
+        <div class="sub">5× Kubernetes · 1 of 13 in MY</div>
       </div>
       <div class="cell">
         <div class="k">Languages</div>
         <div class="v">EN&nbsp;·&nbsp;<span class="ac">中文</span></div>
-        <div class="sub">English + native Mandarin</div>
+        <div class="sub">bilingual · English + Chinese</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ABOUT -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <div class="eyebrow">01 · About</div>
+        <h2 style="margin-top:14px">The cleanest path to execution</h2>
+      </div>
+      <div class="meta">$ whoami</div>
+    </div>
+    <div class="twocol">
+      <div class="card about rv">
+        <h3>Hi, I'm Kyle</h3>
+        <p>Born in '96, I'm a <b>Site Reliability Engineer</b> proficient in the <b>NVIDIA AI infrastructure stack</b>, <b>Kubernetes</b>, <b>Slurm</b>, <b>agentic AI</b> and software engineering, and fluent in both English and Chinese.</p>
+        <p>As an SRE, I communicate clearly and cut through the noise to find the cleanest path to execution. Before committing effort, I map out the process, the key inputs and the likely blockers.</p>
+        <p>I enjoy technical sharing, and I coach Kubernetes every day.</p>
+      </div>
+      <div class="card rv">
+        <h3>Outside of work</h3>
+        <p style="font-size:14.5px;color:var(--muted);margin-bottom:6px">I deliberately slow down and make hard things normal.</p>
+        <div class="listrow">
+          <div class="l"><b><span class="hl">6+ hour</span> live streams</b><small>Certified Kubernetes Networking Engineer (CKNE) topics</small></div>
+          <div class="r"><a href="https://www.youtube.com/watch?v=JFFvGqD8Xyg" target="_blank" rel="noopener" style="color:var(--cyan-ink)">watch ↗</a></div>
+        </div>
+        <div class="listrow">
+          <div class="l"><b>ABRSM Grade 8</b><small>piano</small></div>
+          <div class="r">🎹</div>
+        </div>
+        <div class="listrow">
+          <div class="l"><b>2000+ rated</b><small>lichess.org</small></div>
+          <div class="r">♞</div>
+        </div>
+        <div class="listrow">
+          <div class="l"><b>CFA Level II passed</b><small>out of pure interest</small></div>
+          <div class="r">📈</div>
+        </div>
+        <div class="listrow">
+          <div class="l"><b>Hiking &amp; gym</b><small>pushing physical limits</small></div>
+          <div class="r">⛰</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- NOW -->
 <section class="block" id="now">
   <div class="wrap">
     <div class="head rv">
       <div>
-        <div class="eyebrow">01 · Current deployment</div>
+        <div class="eyebrow">02 · Current deployment</div>
         <h2 style="margin-top:14px">Running a GPU cloud in production</h2>
       </div>
       <div class="meta">live since 2026-03</div>
@@ -399,23 +449,27 @@
 
     <div class="feature rv">
       <div class="top">
-        <div class="co">YTL AI Cloud <span>SRE — AI Infrastructure</span></div>
-        <div class="when"><b>Mar 2026 — Present</b>Kulai, Johor · NVIDIA partnership</div>
+        <div class="co">YTL AI Cloud <span>L2 System Reliability Engineer</span></div>
+        <div class="when"><b>Mar 2026 → Present</b>Kulai, Johor · NVIDIA partnership</div>
       </div>
       <div class="body">
         <div class="banner">
           <div class="ic">★ EXEMPLAR</div>
-          <p>Primarily drove YTL AI Cloud's attainment of <b>NVIDIA Cloud Partner Exemplar</b> status — <b>1 of just 8 organizations globally</b> to reach this tier.</p>
+          <p>Primarily in charge of YTL AI Cloud's attainment of <b>NVIDIA Cloud Partner Exemplar</b> status for GB200 (<b>1 of just 3 organizations worldwide</b> at this tier), owning the technical conformance work against NVIDIA's reference architecture and operational standards.</p>
         </div>
         <ul class="work">
-          <li><b>RAG agent</b> prototyped for answering questions over proprietary data</li>
-          <li><b>LLM assistant kiosk</b> with face-auth + real-time token-usage & cost telemetry</li>
-          <li><b>Slurm + Kubernetes</b> — GPU cluster tooling for AI training & inference workloads</li>
-          <li><b>OOB GPU observability</b> — Grafana on HA Prometheus + Redfish exporter on Kubernetes</li>
-          <li><b>AI-driven SDLC</b> — observability dashboard that turns a user suggestion into a Pull Request</li>
-          <li><b>CI/CD to private networks</b> — self-hosted GitHub Actions runners deploying internal apps</li>
-          <li><b>Dead Man's Switch</b> for nightshift engineers via Slack Socket Mode + systemd</li>
-          <li><b>Docs & runbooks</b> standardized for support and engineering teams</li>
+          <li><b>Daily Kubernetes coaching</b>: company-wide 1-hour sessions with PDF guides, hands-on labs & Q&A</li>
+          <li><b>OOB GPU observability</b>: Grafana on HA Prometheus + Redfish exporter on Kubernetes</li>
+          <li><b>RAG agent</b>: natural-language queries over proprietary internal knowledge</li>
+          <li><b>LLM assistant kiosk</b> with face-auth + real-time token-usage & cost observability</li>
+          <li><b>AI-driven SDLC</b>: turns a user suggestion into a ready-to-review pull request</li>
+          <li><b>CI/CD to private networks</b>: self-hosted GitHub Actions runners deploying to GPU servers</li>
+          <li><b>Dead man's switch</b>: Slack Socket Mode + systemd escalating missed night-shift check-ins</li>
+          <li><b>Jira + Salesforce integration</b> preventing duplicate vendor cases, with runbooks & docs</li>
+          <li><b>Vendor portal</b>: built from L1 & vendor feedback, forward-deployed for fast adoption</li>
+          <li><b>Support automation</b>: static and agentic AI responses for customer support</li>
+          <li><b>Intern mentorship</b>: 2 interns across Kubernetes, agentic AI, software & agile</li>
+          <li><b>Intern portal</b>: Kanban boards and sprints to run the program the agile way</li>
         </ul>
       </div>
     </div>
@@ -427,15 +481,15 @@
   <div class="wrap">
     <div class="head rv">
       <div>
-        <div class="eyebrow">02 · What I bring</div>
+        <div class="eyebrow">03 · What I bring</div>
         <h2 style="margin-top:14px">Built for AI infrastructure &amp; GenAI at scale</h2>
       </div>
-      <div class="meta">$ summary --strengths</div>
+      <div class="meta">$ summary strengths</div>
     </div>
 
     <div class="rv">
       <div class="fitbar">
-        <span class="dotg"></span><b>core_strengths</b> --domain "AI infrastructure &amp; GenAI"
+        <span class="dotg"></span><b>core_strengths</b> domain="AI infrastructure &amp; GenAI"
         <span class="pass">7 areas</span>
       </div>
       <div class="fitgrid">
@@ -443,21 +497,21 @@
           <div class="fitcheck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
           <div class="fittext">
             <div class="req">NVIDIA ecosystem expertise</div>
-            <div class="ev">Drove <b>NVIDIA Cloud Partner Exemplar (1 of 8 globally)</b> at an NVIDIA-partnered GPU cloud; 5× NVIDIA Certified incl. Agentic AI, AI Infrastructure, AI Networking & AI Operations.</div>
+            <div class="ev">Primarily in charge of <b>NVIDIA Cloud Partner Exemplar for GB200 (1 of 3 globally)</b>; <b>6× NVIDIA Certified</b> (1 of 9 worldwide, #1 in Malaysia) incl. Agentic AI, AI Infrastructure, AI Networking, AI Operations & Data Science.</div>
           </div>
         </div>
         <div class="fititem">
           <div class="fitcheck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
           <div class="fittext">
-            <div class="req">GenAI / LLM — hands-on</div>
-            <div class="ev">Built a <b>RAG agent</b> over proprietary data and shipped an <b>LLM assistant</b> with real-time token-usage and cost observability.</div>
+            <div class="req">GenAI / LLM, hands-on</div>
+            <div class="ev">Built a <b>RAG agent</b> over proprietary data, shipped an <b>LLM assistant</b> with real-time token-usage and cost observability, and an <b>agent-driven SDLC</b> that turns suggestions into pull requests.</div>
           </div>
         </div>
         <div class="fititem">
           <div class="fitcheck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
           <div class="fittext">
             <div class="req">Containers &amp; orchestration</div>
-            <div class="ev"><b>Slurm</b> (top skill) and <b>Kubernetes</b> (5× certified, Kubestronaut) plus Docker — orchestration for scalable, efficient model building.</div>
+            <div class="ev"><b>Kubernetes</b> (top skill; 5× certified, Kubestronaut) and <b>Slurm</b>, plus Docker: orchestration for scalable, efficient model building.</div>
           </div>
         </div>
         <div class="fititem">
@@ -471,7 +525,7 @@
           <div class="fitcheck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
           <div class="fittext">
             <div class="req">Teaching, workshops &amp; customer-facing</div>
-            <div class="ev">Authored a published <b>NVIDIA NCA-AIIO certification course</b>, mentored engineers 1:1, and spent a year as a customer-facing L2 engineer scoping tailored solutions.</div>
+            <div class="ev">Run <b>daily company-wide Kubernetes coaching</b>, authored a published <b>NVIDIA NCA-AIIO certification course</b>, mentor interns, and spent a year as a customer-facing L2 engineer scoping tailored solutions.</div>
           </div>
         </div>
         <div class="fititem">
@@ -485,7 +539,7 @@
           <div class="fitcheck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
           <div class="fittext">
             <div class="req">Bilingual communication</div>
-            <div class="ev"><b>Native Mandarin</b> and professional English — comfortable working across teams and audiences in Southeast Asia and Greater China.</div>
+            <div class="ev">Bilingual in <b>English and Chinese</b>, comfortable working across teams and audiences in Southeast Asia and Greater China.</div>
           </div>
         </div>
       </div>
@@ -498,7 +552,7 @@
   <div class="wrap">
     <div class="head rv">
       <div>
-        <div class="eyebrow">03 · Service history</div>
+        <div class="eyebrow">04 · Service history</div>
         <h2 style="margin-top:14px">Six years of keeping things running</h2>
       </div>
       <div class="meta">tail -f /career.log</div>
@@ -506,42 +560,42 @@
 
     <div class="log">
       <div class="entry on rv">
-        <div class="r1"><div class="ttl">SRE, AI Infra — <em>YTL AI Cloud</em></div><div class="dur">2026.03 → present</div></div>
+        <div class="r1"><div class="ttl">L2 System Reliability Engineer · <em>YTL AI Cloud</em></div><div class="dur">2026.03 → present</div></div>
         <div class="sub">Kulai, Johor · GPU data center, NVIDIA partnership</div>
-        <div class="desc">Observability, automation, and reliability for a high-performance AI compute facility serving Southeast Asia's AI ecosystem. Drove the org to NVIDIA Cloud Exemplar status.</div>
-        <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Slurm</span><span class="tag">GitHub Actions</span><span class="tag">LLM / RAG</span></div>
+        <div class="desc">Observability, automation, and reliability for a high-performance AI compute facility serving Southeast Asia's AI ecosystem. Primarily in charge of reaching NVIDIA Cloud Partner Exemplar status for GB200 (1 of 3 worldwide).</div>
+        <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Slurm</span><span class="tag">GitHub Actions</span><span class="tag">LLM / RAG</span><span class="tag">Agentic AI</span></div>
       </div>
 
       <div class="entry rv">
-        <div class="r1"><div class="ttl">Site Reliability Engineer — <em>Experian</em></div><div class="dur">2024.10 → 2026.03</div></div>
+        <div class="r1"><div class="ttl">Site Reliability Engineer · <em>Experian</em></div><div class="dur">2024.10 → 2026.03</div></div>
         <div class="sub">APAC · 1 yr 6 mo</div>
         <div class="desc">Provisioning, CI/CD, and vulnerability mitigation across AWS, Azure, and Kubernetes. Stood up EKS monitoring with Prometheus / Grafana / Loki, automated security remediation with AWS SSM runbooks, and applied FinOps to surface a 60%-per-cluster cost saving on EKS under extended support.</div>
         <div class="tags"><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">EKS</span><span class="tag">Terraform</span><span class="tag">SSM</span><span class="tag">FinOps</span><span class="tag">Loki</span></div>
       </div>
 
       <div class="entry rv">
-        <div class="r1"><div class="ttl">Senior Rails Software Engineer — <em>4Beauty Aesthetics</em></div><div class="dur">2023.07 → 2024.10</div></div>
+        <div class="r1"><div class="ttl">Senior Rails Software Engineer · <em>4Beauty Aesthetics</em></div><div class="dur">2023.07 → 2024.10</div></div>
         <div class="sub">Remote · Miami, FL · 1 yr 4 mo</div>
         <div class="desc">Engineered a proprietary CRM platform and patient portal in full-stack Ruby on Rails for a renowned cosmetic & plastic surgery center.</div>
         <div class="tags"><span class="tag">Ruby on Rails</span><span class="tag">Full-stack</span><span class="tag">CRM</span></div>
       </div>
 
       <div class="entry rv">
-        <div class="r1"><div class="ttl">Senior Support Engineer (L2) — <em>Engine Yard</em></div><div class="dur">2022.08 → 2023.06</div></div>
+        <div class="r1"><div class="ttl">Senior Support Engineer (L2) · <em>Engine Yard</em></div><div class="dur">2022.08 → 2023.06</div></div>
         <div class="sub">Remote · PaaS on AWS EC2 & EKS · 11 mo</div>
-        <div class="desc">24/7 rotational coverage and incident response for the EngineYard PaaS. Built Prometheus/Grafana dashboards from runbooks and solo-engineered a Terraform Provider in Go — plus a Go SDK bridging the provider to the EYC API — so customers could manage environment variables as code.</div>
+        <div class="desc">24/7 rotational coverage and incident response for the EngineYard PaaS. Built Prometheus/Grafana dashboards from runbooks and solo-engineered a Terraform Provider in Go, plus a Go SDK bridging the provider to the EYC API, so customers could manage environment variables as code.</div>
         <div class="tags"><span class="tag">Go</span><span class="tag">Terraform Provider</span><span class="tag">Incident Response</span><span class="tag">EC2 / EKS</span></div>
       </div>
 
       <div class="entry rv">
-        <div class="r1"><div class="ttl">DevOps Engineer — <em>EasyStore</em></div><div class="dur">2021.08 → 2022.08</div></div>
+        <div class="r1"><div class="ttl">DevOps Engineer · <em>EasyStore</em></div><div class="dur">2021.08 → 2022.08</div></div>
         <div class="sub">Malaysia · 1 yr 1 mo</div>
         <div class="desc">Provisioned AWS via Terraform (S3 remote state), cut downtime with rollback pipelines, migrated Rails from Passenger to Puma with k6 load-testing, and moved a frontend app to serverless S3 + CloudFront edge caching for faster response times.</div>
         <div class="tags"><span class="tag">Terraform</span><span class="tag">ECS</span><span class="tag">CloudFront</span><span class="tag">Lambda</span><span class="tag">k6</span></div>
       </div>
 
       <div class="entry rv">
-        <div class="r1"><div class="ttl">Software Engineer — <em>HT Group</em></div><div class="dur">2020.10 → 2021.08</div></div>
+        <div class="r1"><div class="ttl">Software Engineer · <em>HT Group</em></div><div class="dur">2020.10 → 2021.08</div></div>
         <div class="sub">Johor Bahru · 11 mo</div>
         <div class="desc">Built full-stack cross-platform web apps with Ruby on Rails and Hotwire (Stimulus + Turbo), integrating SendGrid and Twilio for order-status notifications on AWS S3 and Heroku.</div>
         <div class="tags"><span class="tag">Rails</span><span class="tag">Hotwire</span><span class="tag">Twilio</span><span class="tag">SendGrid</span></div>
@@ -555,7 +609,7 @@
   <div class="wrap">
     <div class="head rv">
       <div>
-        <div class="eyebrow">04 · Verified credentials</div>
+        <div class="eyebrow">05 · Verified credentials</div>
         <h2 style="margin-top:14px">Certified across the stack</h2>
       </div>
       <div class="meta">credly.com/users/zhun-khing-law</div>
@@ -563,14 +617,14 @@
 
     <div class="certgrid">
       <div class="cert rv">
-        <div class="n">5×</div>
+        <div class="n">6×</div>
         <div class="lbl">NVIDIA Certified</div>
-        <div class="det"><span>NCA-AIIO</span> · AI Infra & Ops<br><span>NCP-AIN</span> · AI Networking<br><span>NCP-AII</span> · AI Infrastructure<br><span>NCP-AIOL</span> · AI Operations<br><span>NCP-AAI</span> · Agentic AI</div>
+        <div class="det"><span style="color:var(--amber)">1 of 9 worldwide · #1 in MY</span> ★<br><span>NCA-AIIO</span> · AI Infra & Ops<br><span>NCP-AIN</span> · AI Networking<br><span>NCP-AII</span> · AI Infrastructure<br><span>NCP-AIOL</span> · AI Operations<br><span>NCP-AAI</span> · Agentic AI<br><span>NCA-ADS</span> · Accelerated Data Science</div>
       </div>
       <div class="cert rv">
         <div class="n">5×</div>
         <div class="lbl">Kubernetes Certified</div>
-        <div class="det"><span>CKAD</span> · App Developer<br><span>CKA</span> · Administrator<br><span>CKS</span> · Security Specialist<br><span>KCNA</span> · Cloud Native Assoc.<br><span>KCSA</span> · Security Assoc.<br><span style="color:var(--amber)">Kubestronaut</span> ★</div>
+        <div class="det"><span>CKAD</span> · App Developer<br><span>CKA</span> · Administrator<br><span>CKS</span> · Security Specialist<br><span>KCNA</span> · Cloud Native Assoc.<br><span>KCSA</span> · Security Assoc.<br><span style="color:var(--amber)">Kubestronaut · 1 of 13 in MY</span> ★</div>
       </div>
       <div class="cert rv">
         <div class="n">3×</div>
@@ -590,15 +644,16 @@
       <div class="cert rv">
         <div class="n">CFA</div>
         <div class="lbl">Finance foundation</div>
-        <div class="det"><span>CFA Level II</span> candidate (2019)<br>BSc (Hons) Financial Analysis<br>+ live equity portfolio mgmt</div>
+        <div class="det"><span>CFA Level II</span> passed<br>BSc (Hons) Financial Analysis<br>+ live equity portfolio mgmt</div>
       </div>
     </div>
 
     <div class="skillbar rv">
-      <span class="s"><b>›</b> Slurm Workload Manager</span>
+      <span class="s"><b>›</b> Kubernetes</span>
       <span class="s"><b>›</b> NVIDIA AI</span>
       <span class="s"><b>›</b> AI Infrastructure</span>
-      <span class="s"><b>›</b> Kubernetes</span>
+      <span class="s"><b>›</b> Agentic AI / RAG</span>
+      <span class="s"><b>›</b> Slurm Workload Manager</span>
       <span class="s"><b>›</b> Prometheus / Grafana / Loki</span>
       <span class="s"><b>›</b> Terraform</span>
       <span class="s"><b>›</b> AWS / Azure</span>
@@ -616,7 +671,7 @@
   <div class="wrap">
     <div class="head rv">
       <div>
-        <div class="eyebrow">05 · Off the clock</div>
+        <div class="eyebrow">06 · Off the clock</div>
         <h2 style="margin-top:14px">Teaching, writing, competing</h2>
       </div>
     </div>
@@ -624,6 +679,10 @@
     <div class="twocol">
       <div class="card courses rv">
         <h3>Courses authored & published</h3>
+        <div class="listrow">
+          <div class="l"><b>CKNE study materials</b><span class="badge">6-hour stream</span><small>Certified Kubernetes Networking Engineer (CKNE) · GitHub study notes + <span class="hl">6-hour</span> live-streamed YouTube walkthrough</small></div>
+          <div class="r"><a href="https://github.com/Kyle-Law/ckne-study-notes" target="_blank" rel="noopener">notes ↗</a><br><a href="https://www.youtube.com/watch?v=JFFvGqD8Xyg" target="_blank" rel="noopener">watch ↗</a></div>
+        </div>
         <div class="listrow">
           <div class="l"><b>Ultimate NVIDIA AI Infra & Ops (NCA-AIIO)</b><small>Udemy · associate certification prep</small></div>
           <div class="r"><a href="https://www.udemy.com/course/nca-aiio-by-kyle" target="_blank" rel="noopener">view ↗</a></div>
@@ -636,13 +695,34 @@
           <div class="l"><b>Microverse Mentor</b><small>1-on-1 technical & professional mentoring</small></div>
           <div class="r">2020</div>
         </div>
+        <h3 style="margin-top:26px">Open source &amp; community</h3>
+        <div class="listrow">
+          <div class="l"><b>NVIDIA BCM Simulator</b><small>open-source Base Command Manager simulator</small></div>
+          <div class="r">open source</div>
+        </div>
+        <div class="listrow">
+          <div class="l"><b>NVIDIA Cert Champions</b><small>certification community contributor</small></div>
+          <div class="r">NVIDIA</div>
+        </div>
+        <div class="listrow">
+          <div class="l"><b>Be Comfortable with Failures in K8s</b><small>KillerCoda scenarios · CrashLoopBackOff, OOMKilled & more</small></div>
+          <div class="r">KillerCoda</div>
+        </div>
         <h3 style="margin-top:26px">Technical writing</h3>
         <div class="listrow">
-          <div class="l"><b>Exam Review — NVIDIA NCP-AIOL</b><small>AI Operations with Labs · new format breakdown</small></div>
+          <div class="l"><b>Understanding Gateway API Inference Extension</b><small>Kubernetes lab · with video walkthrough</small></div>
+          <div class="r"><a href="https://medium.com/@kylelzk" target="_blank" rel="noopener">read ↗</a></div>
+        </div>
+        <div class="listrow">
+          <div class="l"><b>How to have a smoother code review?</b><small>engineering practice</small></div>
+          <div class="r"><a href="https://medium.com/@kylelzk" target="_blank" rel="noopener">read ↗</a></div>
+        </div>
+        <div class="listrow">
+          <div class="l"><b>Exam Review: NVIDIA NCP-AIOL</b><small>AI Operations with Labs · new format breakdown</small></div>
           <div class="r"><a href="https://medium.com/@kylelzk/exam-review-nvidia-certified-professional-ai-operations-with-labs-ncp-aiol-22bcc042ca20" target="_blank" rel="noopener">read ↗</a></div>
         </div>
         <div class="listrow">
-          <div class="l"><b>Exam Review — NVIDIA NCA-AIIO</b><small>AI Infrastructure & Operations</small></div>
+          <div class="l"><b>Exam Review: NVIDIA NCA-AIIO</b><small>AI Infrastructure & Operations</small></div>
           <div class="r"><a href="https://medium.com/@kylelzk/exam-review-nvidia-certified-associate-ai-infrastructure-and-operations-nca-aiio-5920466a726a" target="_blank" rel="noopener">read ↗</a></div>
         </div>
         <div class="listrow">
@@ -667,7 +747,7 @@
         </div>
         <div class="listrow">
           <div class="l award"><b>National Champion</b><small>4th MFPC Financial Planning Tournament</small></div>
-          <div class="r">—</div>
+          <div class="r"></div>
         </div>
         <div class="listrow">
           <div class="l award"><b>Best Institutional Chess Player</b><small>HELP University Chess Tournament</small></div>
@@ -676,10 +756,10 @@
         <h3 style="margin-top:26px">Markets</h3>
         <div class="listrow">
           <div class="l">Managed a personal US equity portfolio<small>price action · fundamentals · macro · swing trades</small></div>
-          <div class="r">2017–19</div>
+          <div class="r">2017-19</div>
         </div>
         <div class="listrow">
-          <div class="l">Languages<small>Chinese (native) · English (professional)</small></div>
+          <div class="l">Languages<small>bilingual · English + Chinese</small></div>
           <div class="r">2 langs</div>
         </div>
       </div>
@@ -692,7 +772,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="rv">
-        <div class="eyebrow" style="margin-bottom:18px">06 · Connect</div>
+        <div class="eyebrow" style="margin-bottom:18px">07 · Connect</div>
         <h2>Let's build <span>GenAI at scale.</span></h2>
       </div>
       <div class="foot-links rv">
@@ -704,7 +784,7 @@
       </div>
     </div>
     <div class="colophon">
-      <span>© 2026 Kyle Law — Zhun Khing Law · Greater Johor Bahru, Malaysia</span>
+      <span>© 2026 Kyle Law (Zhun Khing Law) · Greater Johor Bahru, Malaysia</span>
       <span>built like an ops console · status: operational</span>
     </div>
   </div>
