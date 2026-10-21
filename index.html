@@ -33,6 +33,7 @@
     --mono:'JetBrains Mono',ui-monospace,monospace;
     --maxw:1120px;
     --stem:12px;
+    --spark-op:.5;
   }
   html[data-theme="light"]{
     --bg:#F3F5F8;
@@ -48,6 +49,7 @@
     --cyan-ink:#0E8FA0;
     --bar-bg:rgba(243,245,248,.82);
     --shadow:0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
+    --spark-op:.28;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;transition:background-color .35s ease}
@@ -92,7 +94,9 @@
   html[data-theme="light"] .toggle .moon{display:none}
 
   /* ---------- hero ---------- */
-  .hero{padding:72px 0 40px}
+  .hero{padding:72px 0 40px;position:relative}
+  .spark{position:absolute;left:0;right:0;bottom:0;height:220px;width:100%;opacity:var(--spark-op);pointer-events:none;z-index:0}
+  .hero .wrap{position:relative;z-index:2}
   .chip{
     display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;
     color:var(--nv-ink);border:1px solid rgba(118,185,0,.4);border-radius:999px;padding:5px 12px;background:var(--panel);
@@ -242,7 +246,7 @@
 
   .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .rv.in{opacity:1;transform:none}
-  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.brand .dot,.chip .blink{animation:none}}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.brand .dot,.chip .blink{animation:none}.spark{display:none}}
 </style>
 </head>
 <body>
@@ -263,6 +267,7 @@
 <a id="top"></a>
 
 <section class="hero">
+  <svg class="spark" id="spark" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true"></svg>
   <div class="wrap">
     <span class="chip"><span class="blink"></span>OPEN TO NEW OPPORTUNITIES</span>
     <h1>Kyle Law</h1>
@@ -483,6 +488,38 @@
     document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   }else{
     document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+  }
+
+  // ambient metrics sparkline (respects reduced motion)
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const svg = document.getElementById('spark');
+  if(svg && !reduce){
+    const W=1200,H=220,N=120;
+    let phase=0;
+    const ns='http://www.w3.org/2000/svg';
+    const grad=document.createElementNS(ns,'linearGradient');
+    grad.id='g';grad.setAttribute('x1','0');grad.setAttribute('y1','0');grad.setAttribute('x2','0');grad.setAttribute('y2','1');
+    grad.innerHTML='<stop offset="0" stop-color="#76B900" stop-opacity=".9"/><stop offset="1" stop-color="#76B900" stop-opacity="0"/>';
+    const defs=document.createElementNS(ns,'defs');defs.appendChild(grad);svg.appendChild(defs);
+    const fill=document.createElementNS(ns,'path');fill.setAttribute('fill','url(#g)');svg.appendChild(fill);
+    const line=document.createElementNS(ns,'path');line.setAttribute('fill','none');line.setAttribute('stroke','#76B900');line.setAttribute('stroke-width','1.6');line.setAttribute('stroke-opacity','.85');svg.appendChild(line);
+    // stable-ish noise
+    const seed=Array.from({length:N},(_,i)=>Math.sin(i*0.45)*0.5+Math.sin(i*0.13)*0.5);
+    function frame(){
+      phase+=0.018;
+      let d='',f='M0 '+H;
+      for(let i=0;i<N;i++){
+        const x=(i/(N-1))*W;
+        const base=seed[i];
+        const y=H*0.55 + base*38 + Math.sin(i*0.3+phase)*22 + Math.sin(i*0.9+phase*1.7)*9;
+        d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';
+        f+='L'+x.toFixed(1)+' '+y.toFixed(1)+' ';
+      }
+      f+='L'+W+' '+H+' Z';
+      line.setAttribute('d',d);fill.setAttribute('d',f);
+      requestAnimationFrame(frame);
+    }
+    frame();
   }
 </script>
 </body>
