@@ -197,37 +197,57 @@
   .depth{grid-column:1/-1;grid-row:4;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding-top:34px;position:relative;z-index:2}
   .depth b{color:var(--nv-ink)}
 
-  @media(max-width:960px){
-    .cross{grid-template-columns:repeat(2,1fr)}
-    .cross .hz:last-child{grid-column:1/-1}
-    .hz::after{display:none}
-  }
+  .hz .short{display:none}
+  .hz-detail,.axis .tapnote{display:none}
   @media(max-width:760px){
-    .stem{grid-template-columns:36px 1fr}
-    .trunk{grid-column:1;grid-row:1/7}
-    .core{grid-column:2;justify-self:stretch;text-align:left;width:auto}
-    .core .certs{justify-content:flex-start}
-    .core::after{content:"";position:absolute;top:50%;left:-20px;width:18px;height:2px;background:var(--nv)}
-    .br.l,.br.r{grid-column:2}
-    .br.l::after,.br.r::after{left:-21px;right:auto;width:19px}
-    .m2{grid-row:2}.m3{grid-row:3}.m4{grid-row:4}.m5{grid-row:5}
-    .depth{grid-column:2;grid-row:6;text-align:left;padding-top:18px}
-  }
-  .axis .swipe{display:none;color:var(--nv-ink)}
-  @media(max-width:760px){
-    /* breadth stays horizontal on phones: swipeable row that bleeds to the screen edge */
-    .cross{
-      display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
-      margin:0 calc(-1 * var(--gut));padding:4px var(--gut) 8px;scroll-padding:0 var(--gut);
-      scrollbar-width:none;-webkit-overflow-scrolling:touch;
-    }
-    .cross::-webkit-scrollbar{display:none}
-    .cross .hz{flex:0 0 76%;scroll-snap-align:start}
-    .cross .hz:last-child{grid-column:auto}
-    .hz:hover{transform:none}
-    .tbar{margin-top:8px}
-    .axis .swipe{display:inline}
+    /* phones keep the T: five tiles on the bar, centered stem, 2x2 branches */
+    .axis .tapnote{display:inline;color:var(--nv-ink)}
     .axis .arrows{display:none}
+    .hz-detail{
+      display:block;border:1px solid rgba(118,185,0,.45);border-radius:12px;background:var(--panel);box-shadow:var(--shadow);
+      padding:13px 16px 14px;margin-bottom:12px;
+    }
+    .hz-detail .ix{font-family:var(--mono);font-size:10.5px;color:var(--faint);letter-spacing:.1em}
+    .hz-detail h3{font-family:var(--disp);font-weight:600;font-size:17px;letter-spacing:-.01em;margin:2px 0 6px}
+    .hz-detail ul{list-style:none;font-size:13.5px;color:var(--muted);line-height:1.5}
+    .hz-detail li{padding-left:12px;position:relative}
+    .hz-detail li + li{margin-top:3px}
+    .hz-detail li::before{content:"›";position:absolute;left:0;color:var(--nv-ink)}
+    .cross{gap:6px}
+    .hz{padding:8px 3px 8px;text-align:center;cursor:pointer;border-radius:9px;-webkit-tap-highlight-color:transparent}
+    .hz:hover{transform:none}
+    .hz.on{border-color:var(--nv);box-shadow:inset 0 0 0 1px var(--nv),0 0 0 3px var(--nv-wash)}
+    .hz.on .ix{color:var(--nv-ink);font-weight:700}
+    .hz ul,.hz .full{display:none}
+    .hz .short{display:inline}
+    .hz .ix{font-size:9.5px}
+    .hz h3{font-size:11.5px;line-height:1.15;margin:3px 0 0}
+    .hz::after{bottom:-13px;height:12px}
+    .tbar{height:10px;margin-top:12px}
+    .stem{grid-template-columns:1fr 26px 1fr;row-gap:12px}
+    .trunk{width:10px}
+    .core{width:100%;margin-top:22px;padding:15px 14px 14px}
+    .core h3{font-size:28px}
+    .core p{font-size:13px}
+    .br{padding:11px 11px 12px;border-radius:10px}
+    .br::after{width:14px}
+    .br.l::after{right:-14px}
+    .br.r::after{left:-14px}
+    .br .ix{font-size:9.5px}
+    .br h4{font-size:15px;gap:6px;margin:2px 0 5px}
+    .br h4 .pill{font-size:10px;padding:1px 5px}
+    .br p{font-size:12.5px;line-height:1.5}
+    .depth{padding-top:20px}
+  }
+  @media(max-width:380px){
+    .axis .axtxt{display:none}
+    .cross{gap:4px}
+    .hz h3{font-size:10.5px}
+    .stem{grid-template-columns:1fr 22px 1fr}
+    .br::after{width:12px}
+    .br.l::after{right:-12px}
+    .br.r::after{left:-12px}
+    .br{padding:10px 9px 11px}
   }
 
   /* ---------- track record ---------- */
@@ -335,31 +355,32 @@
     </div>
 
     <div class="rv">
-      <div class="axis"><b>breadth</b> horizontal expertise <span class="rule"></span> <span class="arrows">←→</span><span class="swipe">swipe →</span></div>
+      <div class="axis"><b>breadth</b> <span class="axtxt">horizontal expertise</span> <span class="rule"></span> <span class="arrows">←→</span><span class="tapnote">tap a tile</span></div>
+      <div class="hz-detail" aria-live="polite"></div>
       <div class="cross">
         <div class="hz">
           <div class="ix">01</div>
-          <h3>Software development</h3>
+          <h3><span class="full">Software development</span><span class="short">Software dev</span></h3>
           <ul><li>Ruby on Rails & Go</li><li>Terraform provider + Go SDK</li><li>StimulusJS course on Udemy</li></ul>
         </div>
         <div class="hz">
           <div class="ix">02</div>
-          <h3>AI automation</h3>
+          <h3><span class="full">AI automation</span><span class="short">AI auto&shy;mation</span></h3>
           <ul><li>NCP-AAI certified</li><li>Agent SDLC: suggestion → PR</li><li>RAG agent & agentic support replies</li></ul>
         </div>
         <div class="hz">
           <div class="ix">03</div>
-          <h3>SRE readiness</h3>
+          <h3><span class="full">SRE readiness</span><span class="short">SRE readi&shy;ness</span></h3>
           <ul><li>On-call dead man's switch</li><li>Runbooks & incident response</li><li>CI/CD to private GPU servers</li></ul>
         </div>
         <div class="hz">
           <div class="ix">04</div>
-          <h3>Observability</h3>
+          <h3><span class="full">Observability</span><span class="short">Observ&shy;ability</span></h3>
           <ul><li>HA Prometheus & Grafana</li><li>Redfish exporter for GPU OOB</li><li>LLM token & cost telemetry</li></ul>
         </div>
         <div class="hz">
           <div class="ix">05</div>
-          <h3>NVIDIA AI infrastructure</h3>
+          <h3><span class="full">NVIDIA AI infrastructure</span><span class="short">NVIDIA AI infra</span></h3>
           <ul><li>GB200 Exemplar, 1 of 3 worldwide</li><li>6× certified, 1 of 9 worldwide</li><li>NCA-AIIO course on Udemy</li></ul>
         </div>
       </div>
@@ -377,22 +398,22 @@
           </div>
         </div>
 
-        <div class="br l r2 m2">
+        <div class="br l r2">
           <div class="ix">branch · 01</div>
           <h4>Security <span class="pill">CKS</span><span class="pill">KCSA</span></h4>
           <p>Cluster hardening and <b>automated vulnerability remediation</b> across EKS and AWS.</p>
         </div>
-        <div class="br r r2 m3">
+        <div class="br r r2">
           <div class="ix">branch · 02</div>
           <h4>Networking <span class="pill">NCP-AIN</span></h4>
           <p><a href="https://github.com/Kyle-Law/ckne-study-notes" target="_blank" rel="noopener">CKNE study notes</a> and a <b><a href="https://www.youtube.com/watch?v=JFFvGqD8Xyg" target="_blank" rel="noopener">6-hour live stream</a></b>; DNS in Kubernetes deep dive.</p>
         </div>
-        <div class="br l r3 m4">
+        <div class="br l r3">
           <div class="ix">branch · 03</div>
           <h4>Inference <span class="pill">NCP-AII</span></h4>
           <p><b>Gateway API Inference Extension</b> lab, and GPU AI workloads on an NVIDIA GB200 cloud.</p>
         </div>
-        <div class="br r r3 m5">
+        <div class="br r r3">
           <div class="ix">branch · 04</div>
           <h4>Administration <span class="pill">CKA</span></h4>
           <p><b>Daily coaching</b>, KillerCoda failure scenarios (CrashLoopBackOff, OOMKilled), OOB GPU observability.</p>
@@ -536,6 +557,27 @@
     }
     frame();
   }
+
+  // phones: breadth tiles on the T bar, tap one to show its details
+  (function(){
+    const tiles=[...document.querySelectorAll('.cross .hz')], det=document.querySelector('.hz-detail');
+    if(!tiles.length||!det) return;
+    const mq=window.matchMedia('(max-width:760px)');
+    function pick(i){
+      tiles.forEach((t,j)=>{t.classList.toggle('on',j===i);t.setAttribute('aria-pressed',String(j===i));});
+      const t=tiles[i];
+      det.replaceChildren(t.querySelector('.ix').cloneNode(true),Object.assign(document.createElement('h3'),{textContent:t.querySelector('.full').textContent}),t.querySelector('ul').cloneNode(true));
+    }
+    function sync(){
+      tiles.forEach(t=>{ if(mq.matches){t.setAttribute('role','button');t.tabIndex=0;} else {t.removeAttribute('role');t.removeAttribute('tabindex');t.removeAttribute('aria-pressed');} });
+    }
+    tiles.forEach((t,i)=>{
+      t.addEventListener('click',()=>{ if(mq.matches) pick(i); });
+      t.addEventListener('keydown',e=>{ if(mq.matches&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pick(i);} });
+    });
+    pick(0); sync();
+    if(mq.addEventListener) mq.addEventListener('change',sync);
+  })();
 </script>
 </body>
 </html>
